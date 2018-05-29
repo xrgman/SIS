@@ -11,17 +11,16 @@ services:
       - /app/data:/var/lib/postgresql/data
     ports:
       - 5432:5432
-    deploy:
-      placement:
-        constraints: [node.hostname == pimanager1]
+    #deploy:
+      #placement:
+        #constraints: [node.hostname == pimanager1]
 
   api:
     image: whek/sis_node-server
     #build: .
     command: npm start
-    restart: always
     volumes:
-      - .:/app
+      #- .:/app
       - /app/node_modules
     ports:
       - 3000:3000
